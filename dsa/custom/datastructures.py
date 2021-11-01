@@ -148,10 +148,12 @@ class LinkedList:
           bool: True if value is removed, False otherwise
         """
         removed = False
+        if not self.head:
+            return removed
+
         if self.head.data == value:
-            if self.head is not None:
-                self.head = self.head.next
-                removed = True
+            self.head = self.head.next
+            removed = True
         else:
             curr = self.head
             while curr.next and curr.next.data != value:
